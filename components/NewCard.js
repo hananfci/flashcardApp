@@ -1,6 +1,6 @@
 import React from 'react';
 import {  StyleSheet,View, Text,TextInput,Platform,TouchableOpacity,KeyboardAvoidingView,TouchableWithoutFeedback,Keyboard } from 'react-native';
-
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import MainStyle from '../styles/MainStyle'
 import { connect } from 'react-redux'
 import {addCard} from '../actions'
@@ -39,7 +39,7 @@ class NewCard extends React.Component{
     const {question,answer,correctAnswer} =this.state;
       return(
        
-        <KeyboardAvoidingView style={{flex:1}} behavior={Platform.Os == "ios" ? "padding" : "height"} >
+        <KeyboardAwareScrollView>
           <TouchableWithoutFeedback onPress= {()=>{Keyboard.dismiss() }}>
           <View style={MainStyle.container}>
                 <Text style={styles.title}>What's  new question?</Text>
@@ -65,7 +65,7 @@ class NewCard extends React.Component{
                 </TouchableOpacity>
                 </View>
                 </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
+                </KeyboardAwareScrollView>
    
     )
   }

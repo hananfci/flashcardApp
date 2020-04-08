@@ -110,13 +110,13 @@ handelanimation = () => {
           <View style={styles.card} >
               <Text style={styles.questionNumber}>{currentquestionnumber }/ {decks[deckId].questions.length}</Text>
               { !showQuestion ? 
-              <Animated.View  style={[{ opacity: animation },{transform: [{scale: animation}]}] }>
+              <Animated.View  style={[{transform: [{scale: animation}]}] }>
               <Text style={styles.questionText}>{decks[deckId].questions[questionnumber].question}</Text>
               </Animated.View> :
-               <Animated.View  style={[{ opacity: animation },{transform: [{scale: animation}]}] }>
+               <Animated.View  style={[{transform: [{scale: animation}]}] }>
               <Text style={styles.questionText}>{decks[deckId].questions[questionnumber].answer}</Text>
               </Animated.View>
-              }
+              } 
                 {!showQuestion ? 
                  <TouchableOpacity onPress={ this.showanswer} >
                    <Text style={styles.btnAnswertext}>Show Answer</Text>
