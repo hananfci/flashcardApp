@@ -76,7 +76,7 @@ handelanimation = () => {
     const {questionnumber,showQuestion,correct,incorrect,animation}= this.state
     const currentquestionnumber = questionnumber + 1
   
- console.log("question text", decks[deckId].questions[questionnumber].question);
+ //console.log("question text", decks[deckId].questions[questionnumber].question);
     if (questionnumber === decks[deckId].questions.length) {
       return (
         <View  style={styles.cardContainer}>
@@ -88,8 +88,8 @@ handelanimation = () => {
            <Text style={styles.resulttext}>you got {correct} out of {decks[deckId].questions.length} !  </Text>
             </Animated.View>
       {
-        correct > incorrect? <Text style={{fontSize: 20,fontColor:white}} >🤩</Text> :
-                              <Text style={{fontSize: 20,fontColor:white}}><Emoji name="anguished" style={{fontSize: 30}} /> </Text>
+        correct > incorrect? <Text style={{fontSize: 20,fontColor:'#fff'}} >🤩</Text> :
+                              <Text style={{fontSize: 20,fontColor:'#fff'}}><Emoji name="anguished" style={{fontSize: 30}} /> </Text>
       } 
      
       <DeckButton  onPress={() => this.tryAgain()}
