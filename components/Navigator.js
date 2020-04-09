@@ -28,7 +28,10 @@ class Navigator extends Component  {
         
         initialRouteName="Deck List"
         screenOptions=
-        {({ route }) => ({
+        {
+        
+          ({ route }) => ({
+          
           tabBarIcon: ({ tintColor}) => {
             let icon;
             if (route.name === "Deck List") {
@@ -45,33 +48,35 @@ class Navigator extends Component  {
             
             return icon;
           }
-          
-          
         }
         )
       }
-    
+     
         tabBarOptions={{
           tintColor:gray,
           activeTintColor: purple,
           style: {
-            fontSize:30,
+            fontSize:20,
+            backgroundColor:white
           },
-          labelStyle: { fontSize: 40 },
-          tabStyle: { width: 200 },
-         
+           labelStyle: { fontSize: 20 },
+          tabStyle: { backgroundColor:white }, 
+          
         }} >
           <Tabs.Screen
            name="Deck List"
             component={DeckStack}
+         
            options={{
+          /*   tabBarOptions :{
+              backgroundColor:'#2f2679',
+             }, */
             tabBarLabel: 'Home',
           }} />
         <Tabs.Screen
          name="New Deck"
           component={NewDeck}
          options={{
-          backgroundColor: white,
           tabBarLabel: 'New Deck',
         }} />
       

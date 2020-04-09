@@ -38,7 +38,7 @@ import { AppLoading} from 'expo'
                         <TouchableOpacity  onPress={() =>
                         
                           this.props.navigation.navigate('DeckDetails', {
-                            deckId: item.id,
+                            deckId: item.id,name:item.title
                             
                           })}
                           style={styles.touchbtn}

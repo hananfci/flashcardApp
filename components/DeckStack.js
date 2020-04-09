@@ -13,45 +13,64 @@ const Stack = createStackNavigator();
 
 const DeckStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+    screenOptions= {
+      { headerTintColor:white,
+           headerStyle :{
+            backgroundColor:'#2f2679',
+           }}
+       } >
       <Stack.Screen name="DeckList" component={DeckList}
         options={{
-          title: 'All Decks' ,
-          headerTintColor:white,
-          headerStyle :{
-           backgroundColor:purple,
-          }}}
+          title: 'All Decks'}}
       />
       <Stack.Screen
         name="DeckDetails"
         component={DeckDetails}  
-        options={{ 
-          title: 'Deck Info',
-          headerTintColor:white,
-          headerStyle :{
-           backgroundColor:purple,
-          } }}  
+        options={
+          ({ route }) => {
+           
+            console.log(route)
+            const {name}= route.params
+            const info = 'Deck'
+            return {
+              title:  `${name} ${info}`
+            };
+          }
+        
+          }  
       />
        <Stack.Screen
         name="NewCard"
         component={NewCard} 
-        options={{
-           title: 'Add New Card' ,
-           headerTintColor:white,
-           headerStyle :{
-            backgroundColor:purple,
-           }}}   
+        options={
+          ({ route }) => {
+           
+            console.log(route)
+            const {name}= route.params
+            const info = 'New card'
+            return {
+              title:  `${name} ${info}`
+            };
+          }
+        
+          }  
       />
        <Stack.Screen
         name="Quiz"
         component={Quiz} 
-        options={{
-           title: 'Quiz',          
-           headerTintColor:white,
-           headerStyle :{
-            backgroundColor:purple,
-           }
-          }}    
+        options={
+          ({ route }) => {
+           
+            console.log(route)
+            const {name}= route.params
+            const info = 'Cards'
+            return {
+              title:  `${name} ${info}`
+            };
+          }
+        
+          }    
       />
 
     </Stack.Navigator>

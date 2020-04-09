@@ -23,11 +23,11 @@ const {decks,deckId, goBack} =this.props;
           <View  style={styles.card} >
         <Text style={styles.titleText}>{decks[deckId].title}</Text>
         <Text style={styles.cardnumText}>{decks[deckId].questions.length} Card</Text>
-        <DeckButton onPress={() => this.props.navigation.navigate('NewCard', {deckId: deckId })} 
+        <DeckButton onPress={() => this.props.navigation.navigate('NewCard', {deckId: deckId, name: decks[deckId].title })} 
                     styles={styles}
                      text="Add Card"
                      color={purple}/>
-        <DeckButton onPress={() => this.props.navigation.navigate('Quiz', {deckId: deckId })} 
+        <DeckButton onPress={() => this.props.navigation.navigate('Quiz', {deckId: deckId, name: decks[deckId].title })} 
                     styles={styles}
                      text="Start Quiz"
                      color={red}/>
