@@ -7,6 +7,7 @@ import DeckList from "./DeckList";
 import DeckDetails from"./DeckDetails";
 import NewCard from './NewCard';
 import Quiz from './Quiz'
+import Header from '../Share/Header'
 import { purple, white } from "../utils/colors";
 
 const Stack = createStackNavigator();
@@ -21,8 +22,18 @@ const DeckStack = () => {
            }}
        } >
       <Stack.Screen name="DeckList" component={DeckList}
-        options={{
-          title: 'All Decks'}}
+        options={
+          ({ navigation }) => {
+            console.log(navigation)
+            return {
+              title:  "All Decks",
+              //headerTitle: ()=><Header navigation={navigation} title='All Decks'/>
+              
+            };
+          }
+        
+          }  
+       
       />
       <Stack.Screen
         name="DeckDetails"
@@ -40,6 +51,22 @@ const DeckStack = () => {
         
           }  
       />
+        <Stack.Screen
+        name="Quiz"
+        component={Quiz} 
+        options={
+          ({ route }) => {
+           
+            console.log(route)
+            const {name}= route.params
+            const info = 'Cards'
+            return {
+              title:  `${name} ${info}`
+            };
+          }
+        
+          }    
+      />
        <Stack.Screen
         name="NewCard"
         component={NewCard} 
@@ -56,22 +83,7 @@ const DeckStack = () => {
         
           }  
       />
-       <Stack.Screen
-        name="Quiz"
-        component={Quiz} 
-        options={
-          ({ route }) => {
-           
-            console.log(route)
-            const {name}= route.params
-            const info = 'Cards'
-            return {
-              title:  `${name} ${info}`
-            };
-          }
-        
-          }    
-      />
+     
 
     </Stack.Navigator>
   );

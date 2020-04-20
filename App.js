@@ -7,6 +7,7 @@ import reducer from './reducers'
 import { View,  Text,StatusBar,SafeAreaView } from 'react-native';
 import MainStyle from './styles/MainStyle';
 import Navigator from './components/Navigator'
+import DrawerMenu from './components/DrawerMenu'
 import DeckList from './components/DeckList';
 import Constants from 'expo-constants';
 import { purple, white } from './utils/colors'
@@ -27,7 +28,8 @@ export default class App extends React.Component {
               backgroundColor={purple}
                 barStyle="light-content" />
               </View>
-      <Navigator/> 
+      <Navigator/>
+     {/*  <DrawerMenu/> */}
     </View >
     </Provider>
    
